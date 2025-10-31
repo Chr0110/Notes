@@ -1,0 +1,50 @@
+// generator client {
+//   provider = "prisma-client-js"
+// }
+
+// datasource db {
+//   provider = "mongodb"
+//   url      = env("DATABASE_URL")
+// }
+
+// model users {
+//   id       String @id @default(auto()) @map("_id") @db.ObjectId
+//   password String
+//   role     String
+//   username String @unique
+// }
+
+// model note {
+//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   title     String
+//   content   String
+//   authorId  String   @db.ObjectId
+//   author    users    @relation(fields: [authorId], references: [id])
+//   createdAt DateTime @default(now())
+// }
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  password String
+  role     String
+  username String  @unique
+  notes    note[]  @relation("UserNotes")  // Added relation name
+}
+
+model note {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  content   String
+  authorId  String   @db.ObjectId
+  author    users    @relation("UserNotes", fields: [authorId], references: [id])  // Added relation name
+  createdAt DateTime @default(now())
+}

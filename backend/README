@@ -1,0 +1,59 @@
+🧱 Project Overview: “Notes App” with Auth + Roles
+👤 User Features:
+    Register/Login
+
+    Create/Edit/Delete their own notes
+
+    View only their own notes
+
+    Search other users’ public notes (optional feature)
+
+🛡 Admin Features:
+    View all users
+
+    View all notes (even private ones)
+
+    Delete any note
+
+🔧 Tech Stack Suggestion
+    Backend: NestJS + PostgreSQL + TypeORM/Prisma
+
+    Frontend: React (or Next.js if you want SSR)
+
+    Auth: JWT with Role-based Access Control (RBAC)
+
+    Database Models:
+
+    User: id, email, hashed password, role (USER | ADMIN)
+
+    Note: id, content, ownerId (FK to User), maybe isPublic
+
+🔐 Permissions Logic
+    Role	Can see own notes	Can search others’ notes	Can see all notes	Can delete any note
+    User	✅	                ✅ (maybe optional)	        ❌	                 ❌
+    Admin	✅	                ✅	                        ✅	                 ✅
+    
+🛠 Suggested Build Steps:
+    NestJS Backend
+
+    Auth module with JWT
+
+    User module (CRUD)
+
+    Notes module (CRUD)
+
+    AuthGuard + RolesGuard
+
+    Connect to Postgres
+
+    Dockerize it
+
+    React Frontend
+
+    Login/Register
+
+    Notes dashboard
+
+    Admin panel
+
+    Docker Compose full app
