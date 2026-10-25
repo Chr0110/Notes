@@ -16,7 +16,7 @@
     Delete any note
 
 🔧 Tech Stack Suggestion
-    Backend: NestJS + PostgreSQL + TypeORM/Prisma
+    Backend: NestJS + MongoDB + TypeORM/Prisma
 
     Frontend: React (or Next.js if you want SSR)
 
@@ -44,7 +44,7 @@
 
     AuthGuard + RolesGuard
 
-    Connect to Postgres
+    Connect to MongoDB
 
     Dockerize it
 
