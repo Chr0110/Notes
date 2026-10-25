@@ -28,7 +28,7 @@ const Signup = () => {
   }
 
   try {
-    console.log(username, password);
+    // console.log(username, password);
     const response = await fetch('http://localhost:3000/users/register',
       {
         method: 'POST',
@@ -40,7 +40,7 @@ const Signup = () => {
           password,
         }),
       });
-      console.log(response)
+      // console.log(response)
       if (!response.ok)
       {
         const errorData = await response.json();

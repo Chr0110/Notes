@@ -14,7 +14,7 @@ class AuthController {
   @MessagePattern({ cmd: 'register' })
   async register(data: { username: string; password: string }) {
     try {
-      console.log(data.username)
+      // console.log(data.username)
       const hashedPassword = await bcrypt.hash(data.password, 10);
       const user = await prisma.users.create({
       data: {
@@ -51,7 +51,7 @@ class AuthController {
 
   @MessagePattern({ cmd: 'login' })
   async login(data: { username: string; password: string }) {
-    console.log(data.username)
+    // console.log(data.username)
     const user = await prisma.users.findUnique({
       where: { username: data.username },
     });
